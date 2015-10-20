@@ -1,3 +1,6 @@
+#Equipe - Lee Software#
+O nosso cliente é o número 6. O seu nicho é a venda de calçados. 
+
 # Projeto Exemplo #
 O projeto pode ser utilizado como base para a construÃ§Ã£o de uma aplicaÃ§Ã£o de cadastro e consultas simples.
 A aplicaÃ§Ã£o utiliza as seguintes tecnologias:
