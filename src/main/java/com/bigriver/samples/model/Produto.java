@@ -1,12 +1,25 @@
 package com.bigriver.samples.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Produto {
 
 	//atributos de produto
 	
-	@NonVisual
+	
 	private int codigo;
 	
+	@Id
+	@GeneratedValue
+	public int getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 	private int quantidade,valor;
 	
 	private String marca,nome,cor;
