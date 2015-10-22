@@ -3,11 +3,35 @@ package com.bigriver.samples.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import org.hibernate.property.Getter;
 
 @Entity
 public class VendadosProdutos {
 
-	public int quantVenda,dataVenda,codVenda;
+	private int quantVenda,dataVenda,codVenda;
+	
+	private Pessoa cliente;
+	private Produto produto;
+	
+	@OneToOne
+	public Produto getProduto(){
+		return produto;
+	}
+	
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+	
+	@OneToOne
+	public Pessoa getCliente() {
+		return cliente;
+	}
+	
+	public void setCliente(Pessoa cliente) {
+		this.cliente = cliente;
+	}
 	
 	@Id
 	@GeneratedValue
@@ -35,5 +59,9 @@ public class VendadosProdutos {
 		this.quantVenda = quantVenda;
 	}
 
+	@Override
+	public String toString() {
+		return getCliente().getNome() + " " + getProduto().getNome();
+	}
 	
 }

@@ -7,6 +7,7 @@ import com.bigriver.samples.model.Pessoa;
 import com.bigriver.samples.model.Produto;
 import com.bigriver.samples.model.VendadosProdutos;
 import com.bigriver.samples.service.VendaPessoa;
+import com.bigriver.samples.service.VendaProduto;
 import com.bigriver.samples.view.TelaCadastro;
 import com.bigriver.samples.view.TelaConsulta;
 import com.bigriver.samples.view.TelaDashboard;
@@ -17,7 +18,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class DashBoard<VendaProduto> extends Application {
+public class DashBoard extends Application {
 	//Titulo da Janela
 	static final String TITULO = "Venda de Produtos";
 	
@@ -42,12 +43,16 @@ public class DashBoard<VendaProduto> extends Application {
 		TelaConsulta<Pessoa> consulta = new TelaConsulta<>("Consulta Pessoas", pessoaDao);
 		
 		//Cria uma Venda Ilegal de Pessoas
-		VendaPessoa vendaPessoas = new VendaPessoa();
+		//VendaPessoa vendaPessoas = new VendaPessoa();
 		
 		//Cria uma Tela de Vendas
-		TelaVendas<Pessoa> telaVendas = new TelaVendas<>("Venda Ilegal Pessoas", vendaPessoas);
+	//	TelaVendas<Pessoa> telaVendas = new TelaVendas<>("Venda Ilegal Pessoas", vendaPessoas);
 		
 		//Criar uma venda de produto
+		VendaProduto venda1 = new VendaProduto();
+		
+		// Tela vendas
+		TelaVendas<Produto> telavenda = new TelaVendas<>("Venda de produtos", venda1);
 		
 		
 		//Criar uma DAO para Produtos
@@ -62,8 +67,10 @@ public class DashBoard<VendaProduto> extends Application {
 		//Criar uma tela de Cadastro de Produtos
 		TelaCadastro<Produto> telaCadastroProdutos = new TelaCadastro<Produto>("Cadastro de Produtos", produto, produtoDAO);
 		
+		TelaConsulta<VendadosProdutos> telaConsultaVendas = new TelaConsulta<>("Consulta de Vendas", venda1.getVendaDAO());
+		
 		//Cria uma tela de DashBoard com as telas de Consulta e Cadastro de Pessoas
-		TelaDashboard telaDashboard = new TelaDashboard(consulta, cadastro, consultaProdutos, telaCadastroProdutos, telaVendas);
+		TelaDashboard telaDashboard = new TelaDashboard(consulta, cadastro, consultaProdutos, telaCadastroProdutos, telavenda, telaConsultaVendas);
 		
 		//Cria uma Scene (JavaFX) com a tela de consulta
 		Scene scene = new Scene(telaDashboard);
