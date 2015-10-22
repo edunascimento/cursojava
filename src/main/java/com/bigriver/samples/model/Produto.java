@@ -3,16 +3,35 @@ package com.bigriver.samples.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 
 import com.dooapp.fxform.annotation.NonVisual;
 
+@NamedQueries({
+	@NamedQuery(name = "Produto.findAll", query="SELECT produto FROM Produto produto"),
+//	@NamedQuery(name = "Produto.findAllNotSelled", query ="SELECT produto FROM Produto WHERE produto.venda!=null")
+})
 @Entity
 public class Produto {
 
+	private VendadosProdutos venda;
+	
 	//atributos de produto
+	
 	
 	@NonVisual
 	private int codigo;
+	
+	@OneToOne(mappedBy="produto")
+	public VendadosProdutos getVenda() {
+		return venda;
+	}
+	public void setVenda(VendadosProdutos venda) {
+		this.venda = venda;
+	}
+
 	private int quantidade,valor;
 	private String marca,nome,cor;
 	

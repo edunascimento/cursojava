@@ -3,6 +3,7 @@ package com.bigriver.samples.dao;
 import java.util.Collection;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import com.bigriver.samples.BancoDeDados;
 import com.bigriver.samples.model.Pessoa;
@@ -32,6 +33,14 @@ public class ProdutoDAO implements DAO<Produto> {
 		return null;
 	}
 
+	public Collection<Produto> executarNamedQuery(String named){
+		EntityManager gerenteEntidades = BancoDeDados.abreEntityManager();
+		Query query = gerenteEntidades.createNamedQuery(named);
+		Collection<Produto> lista = query.getResultList();
+		
+		return lista;
+	}
+	
 	@Override
 	public Collection<Produto> todos() {
 		

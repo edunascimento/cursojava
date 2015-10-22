@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 
 import com.bigriver.samples.listener.PessoaListener;
 import com.dooapp.fxform.annotation.NonVisual;
@@ -20,6 +22,7 @@ import com.dooapp.fxform.annotation.NonVisual;
  * @author Rodney
  *
  */
+@NamedQuery(name = "Pessoa.findAll", query="SELECT pessoa FROM Pessoa pessoa")
 @Entity
 @EntityListeners(PessoaListener.class)
 public class Pessoa {
