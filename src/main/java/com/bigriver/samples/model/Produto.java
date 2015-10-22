@@ -11,6 +11,8 @@ public class Produto {
 	
 	
 	private int codigo;
+	private int quantidade,valor;
+	private String marca,nome,cor;
 	
 	@Id
 	@GeneratedValue
@@ -20,9 +22,7 @@ public class Produto {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	private int quantidade,valor;
 	
-	private String marca,nome,cor;
 	
 	public String getCor() {
 		return cor;

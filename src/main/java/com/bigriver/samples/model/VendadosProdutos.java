@@ -1,9 +1,24 @@
 package com.bigriver.samples.model;
 
-public class VendadosProdutos extends Pessoa {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-	public int quantVenda,dataVenda;
+@Entity
+public class VendadosProdutos {
+
+	public int quantVenda,dataVenda,codVenda;
 	
+	@Id
+	@GeneratedValue
+	public int getCodVenda() {
+		return codVenda;
+	}
+
+	public void setCodVenda(int codVenda) {
+		this.codVenda = codVenda;
+	}
+
 	public int getDataVenda() {
 		return dataVenda;
 	}
@@ -20,6 +35,5 @@ public class VendadosProdutos extends Pessoa {
 		this.quantVenda = quantVenda;
 	}
 
-	public int getId(){
-	return super.getId();}
+	
 }

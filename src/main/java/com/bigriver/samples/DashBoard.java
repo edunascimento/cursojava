@@ -5,6 +5,7 @@ import com.bigriver.samples.dao.ProdutoDAO;
 import com.bigriver.samples.model.Endereco;
 import com.bigriver.samples.model.Pessoa;
 import com.bigriver.samples.model.Produto;
+import com.bigriver.samples.model.VendadosProdutos;
 import com.bigriver.samples.service.VendaPessoa;
 import com.bigriver.samples.view.TelaCadastro;
 import com.bigriver.samples.view.TelaConsulta;
@@ -16,7 +17,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class DashBoard extends Application {
+public class DashBoard<VendaProduto> extends Application {
 	//Titulo da Janela
 	static final String TITULO = "Venda de Produtos";
 	
@@ -45,6 +46,9 @@ public class DashBoard extends Application {
 		
 		//Cria uma Tela de Vendas
 		TelaVendas<Pessoa> telaVendas = new TelaVendas<>("Venda Ilegal Pessoas", vendaPessoas);
+		
+		//Criar uma venda de produto
+		
 		
 		//Criar uma DAO para Produtos
 		ProdutoDAO produtoDAO = new ProdutoDAO();
