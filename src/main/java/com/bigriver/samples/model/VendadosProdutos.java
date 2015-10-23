@@ -70,7 +70,7 @@ public class VendadosProdutos {
 
 	@Override
 	public String toString() {
-		return getCliente().getNome() + " " + getProduto().getNome() +""+getTimestamps();
+		return getCliente().getNome() + " comprou:  " + getProduto().getNome() +" em:  "+getTimestamps();
 	}
 
 	/*public void setTimesamps(Date from) {
