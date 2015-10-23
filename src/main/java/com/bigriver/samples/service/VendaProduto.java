@@ -22,7 +22,7 @@ public class VendaProduto implements ServicoVenda<Produto>{
 	
 	@Override
 	public Collection<Produto> todosNaoVendidos() {
-		return produtoDAO.todos();
+		return produtoDAO.todosNaoVendidos();
 	}
 
 	@Override

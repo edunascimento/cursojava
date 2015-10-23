@@ -10,8 +10,8 @@ import javax.persistence.OneToOne;
 import com.dooapp.fxform.annotation.NonVisual;
 
 @NamedQueries({
-	@NamedQuery(name = "Produto.findAll", query="SELECT produto FROM Produto produto"),
-//	@NamedQuery(name = "Produto.findAllNotSelled", query ="SELECT produto FROM Produto WHERE produto.venda!=null")
+	@NamedQuery(name = "Produto.findAll", query="SELECT prod FROM Produto prod"),
+//	@NamedQuery(name = "Produto.findAll", query ="SELECT p FROM Produto WHERE p.venda <> null")
 })
 @Entity
 public class Produto {

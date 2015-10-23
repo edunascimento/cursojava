@@ -1,9 +1,14 @@
 package com.bigriver.samples.model;
 
+import java.security.Timestamp;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.property.Getter;
 
@@ -14,7 +19,7 @@ public class VendadosProdutos {
 	
 	private Pessoa cliente;
 	private Produto produto;
-	
+	private Date timestamps;
 	@OneToOne
 	public Produto getProduto(){
 		return produto;
@@ -61,7 +66,21 @@ public class VendadosProdutos {
 
 	@Override
 	public String toString() {
-		return getCliente().getNome() + " " + getProduto().getNome();
+		return getCliente().getNome() + " " + getProduto().getNome() +""+getTimestamps();
 	}
+
+	/*public void setTimesamps(Date from) {
+		// TODO Auto-generated method stub
+		return timestamps;
+	}*/
 	
+	public void setTimestamps(Date timestamps) 
+	{
+		this.timestamps = timestamps;
+	}
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getTimestamps() 
+	{
+		return timestamps;
+	}
 }
