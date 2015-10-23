@@ -4,6 +4,7 @@ import java.security.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -12,7 +13,10 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.property.Getter;
 
+import com.bigriver.samples.listener.VendadosProdutosListener;
+
 @Entity
+@EntityListeners(VendadosProdutosListener.class)
 public class VendadosProdutos {
 
 	private int quantVenda,dataVenda,codVenda;
